@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/build/structure_info.gd" id="1_0ao7y"]
+
+[resource]
+script = ExtResource("1_0ao7y")
+id = &"longhouse"
+footprint = Vector2i(5, 3)
+provides_station = false
+station = 2
+placeholder_color = Color(0.541176, 0.305882, 0.141176, 1)

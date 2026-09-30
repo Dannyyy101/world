@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_berries.png" id="1_g5dn5"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_n5beb"]
+
+[resource]
+script = ExtResource("2_n5beb")
+id = &"berries"
+display_name = "Beeren"
+description = "Süß und saftig. Halten nicht lange."
+icon = ExtResource("1_g5dn5")
+category = 1
+max_stack = 20
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 8.0
+hydration = 4.0
+warmth = 0.0
+spoil_days = 3
+placeable_scene_path = ""
+required_discovery = &""

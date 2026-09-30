@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_ubsj1"]
+
+[resource]
+script = ExtResource("1_ubsj1")
+required_tools = Array[StringName]([])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &"smoke_meat"
+id = &"smoked_meat"
+inputs = Dictionary[StringName, int]({
+&"raw_meat": 2
+})
+output_id = &"smoked_meat"
+output_amount = 2
+station = 3
+craft_seconds = 8.0
+required_discovery = &"smoking"

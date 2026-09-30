@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/build/structure_info.gd" id="1_gikok"]
+
+[resource]
+script = ExtResource("1_gikok")
+id = &"workspot"
+footprint = Vector2i(2, 1)
+provides_station = true
+station = 2
+placeholder_color = Color(0.541176, 0.352941, 0.168627, 1)

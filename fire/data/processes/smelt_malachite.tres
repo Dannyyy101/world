@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FireProcess" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://fire/scripts/fire_process.gd" id="1_proc"]
+
+[resource]
+script = ExtResource("1_proc")
+id = &"smelt_malachite"
+station = 4
+input_id = &"malachite"
+extra_inputs = {&"charcoal": 1}
+output_id = &"copper_bead"
+output_amount = 1
+duration_hours = 0.3
+burn_after_hours = 0.0
+min_temperature = 1085.0
+action_id = &"smelt_malachite"

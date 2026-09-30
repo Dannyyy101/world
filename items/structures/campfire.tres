@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/build/structure_info.gd" id="1_vconb"]
+
+[resource]
+script = ExtResource("1_vconb")
+id = &"campfire"
+footprint = Vector2i(1, 1)
+provides_station = true
+station = 1
+placeholder_color = Color(0.909804, 0.541176, 0.164706, 1)

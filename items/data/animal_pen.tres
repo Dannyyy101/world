@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_animal_pen.png" id="1_2wj61"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_jgwsa"]
+
+[resource]
+script = ExtResource("2_jgwsa")
+id = &"animal_pen"
+display_name = "Tiergehege"
+description = "Zaun für gezähmte Tiere."
+icon = ExtResource("1_2wj61")
+category = 5
+max_stack = 5
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = "res://animals/scenes/animal_pen.tscn"
+required_discovery = &""

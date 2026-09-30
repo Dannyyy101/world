@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_376cf"]
+
+[resource]
+script = ExtResource("1_376cf")
+required_tools = Array[StringName]([])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &""
+id = &"hut"
+inputs = Dictionary[StringName, int]({
+&"clay": 4,
+&"cordage": 4,
+&"wood_log": 8
+})
+output_id = &"hut"
+output_amount = 1
+station = 2
+craft_seconds = 10.0
+required_discovery = &"cordage"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_ngx2n"]
+
+[resource]
+script = ExtResource("1_ngx2n")
+required_tools = Array[StringName]([])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &""
+id = &"storage_pit"
+inputs = Dictionary[StringName, int]({
+&"branch": 4,
+&"stone": 4
+})
+output_id = &"storage_pit"
+output_amount = 1
+station = 0
+craft_seconds = 4.0
+required_discovery = &""

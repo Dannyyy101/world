@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_bone.png" id="1_snkr8"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_0fk7h"]
+
+[resource]
+script = ExtResource("2_0fk7h")
+id = &"bone"
+display_name = "Knochen"
+description = "Stabil und leicht zu bearbeiten."
+icon = ExtResource("1_snkr8")
+category = 0
+max_stack = 20
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = ""
+required_discovery = &""

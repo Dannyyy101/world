@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/build/structure_info.gd" id="1_ylvdm"]
+
+[resource]
+script = ExtResource("1_ylvdm")
+id = &"kiln"
+footprint = Vector2i(2, 2)
+provides_station = true
+station = 4
+placeholder_color = Color(0.721569, 0.439216, 0.227451, 1)

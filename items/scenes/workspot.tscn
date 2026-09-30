@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://items/scenes/workspot.gd" id="1_w"]
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_workspot.png" id="2_tex"]
+[ext_resource type="PackedScene" path="res://core/components/interactable.tscn" id="3_int"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(28, 12)
+
+[node name="Workspot" type="Node2D"]
+script = ExtResource("1_w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tex")
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Body"]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Interactable" parent="." instance=ExtResource("3_int")]
+prompt_text = "Werkplatz benutzen"

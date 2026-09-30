@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/build/structure_info.gd" id="1_m4txx"]
+
+[resource]
+script = ExtResource("1_m4txx")
+id = &"drying_rack"
+footprint = Vector2i(2, 1)
+provides_station = true
+station = 3
+placeholder_color = Color(0.784314, 0.658824, 0.415686, 1)

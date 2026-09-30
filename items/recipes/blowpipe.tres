@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_l0kad"]
+
+[resource]
+script = ExtResource("1_l0kad")
+required_tools = Array[StringName]([&"scraper"])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &""
+id = &"blowpipe"
+inputs = Dictionary[StringName, int]({
+&"bone": 2
+})
+output_id = &"blowpipe"
+output_amount = 1
+station = 2
+craft_seconds = 4.0
+required_discovery = &"blowpipe"

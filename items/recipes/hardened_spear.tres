@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_g7h3j"]
+
+[resource]
+script = ExtResource("1_g7h3j")
+required_tools = Array[StringName]([])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &"harden_spear"
+id = &"hardened_spear"
+inputs = Dictionary[StringName, int]({
+&"wooden_spear": 1
+})
+output_id = &"hardened_spear"
+output_amount = 1
+station = 1
+craft_seconds = 5.0
+required_discovery = &"fire_hardening"
