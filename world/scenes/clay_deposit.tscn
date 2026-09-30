@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://world/scenes/resources/resource_node.tscn" id="1_base"]
+[ext_resource type="Texture2D" path="res://world/art/placeholder/clay_deposit.png" id="2_t"]
+[ext_resource type="Texture2D" path="res://world/art/placeholder/clay_deposit_empty.png" id="3_t"]
+
+[node name="clay_deposit" instance=ExtResource("1_base")]
+texture_full = ExtResource("2_t")
+texture_depleted = ExtResource("3_t")
+item_id = &"clay"
+amount_min = 2
+amount_max = 3
+regrow_days = 6
+prompt_text = "Ton graben"
+particle_color = Color(0.75, 0.45, 0.3, 1)

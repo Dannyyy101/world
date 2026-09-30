@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://world/scripts/field_plot.gd" id="1_fp"]
+[ext_resource type="PackedScene" path="res://core/components/interactable.tscn" id="2_int"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp"]
+size = Vector2(16, 16)
+
+[node name="FieldPlot" type="Node2D"]
+z_index = -1
+script = ExtResource("1_fp")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+offset = Vector2(0, -8)
+
+[node name="Interactable" parent="." instance=ExtResource("2_int")]
+position = Vector2(0, -8)
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+shape = SubResource("RectangleShape2D_fp")

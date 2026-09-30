@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://world/scenes/resources/resource_node.tscn" id="1_base"]
+[ext_resource type="Texture2D" path="res://world/art/placeholder/branch_bush.png" id="2_t"]
+[ext_resource type="Texture2D" path="res://world/art/placeholder/branch_bush_empty.png" id="3_t"]
+
+[node name="bush_branch" instance=ExtResource("1_base")]
+texture_full = ExtResource("2_t")
+texture_depleted = ExtResource("3_t")
+item_id = &"branch"
+amount_min = 1
+amount_max = 2
+regrow_days = 3
+prompt_text = "Äste sammeln"
+particle_color = Color(0.47, 0.33, 0.2, 1)

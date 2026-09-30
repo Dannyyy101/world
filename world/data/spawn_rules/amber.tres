@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpawnRule" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://world/scripts/spawn_rule.gd" id="1_rule"]
+[ext_resource type="PackedScene" path="res://world/scenes/amber_find.tscn" id="2_scene"]
+
+[resource]
+script = ExtResource("1_rule")
+id = &"amber"
+scene = ExtResource("2_scene")
+terrains = Array[int]([5])
+count = 5
+min_spacing = 10.0
+max_water_dist = 1
+min_water_dist = 1
+cluster_size = 1
+cluster_radius = 2.0
