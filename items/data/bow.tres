@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_bow.png" id="1_y4i76"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_hciao"]
+
+[resource]
+script = ExtResource("2_hciao")
+id = &"bow"
+display_name = "Bogen"
+description = "Trifft aus der Ferne."
+icon = ExtResource("1_y4i76")
+category = 3
+max_stack = 1
+tool_type = 4
+tool_power = 3.0
+max_durability = 60
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = ""
+required_discovery = &""

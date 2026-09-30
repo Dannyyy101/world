@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_b35pi"]
+
+[resource]
+script = ExtResource("1_b35pi")
+required_tools = Array[StringName]([&"grindstone"])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &"grind_grain"
+id = &"flour"
+inputs = Dictionary[StringName, int]({
+&"wild_grain": 3
+})
+output_id = &"flour"
+output_amount = 1
+station = 0
+craft_seconds = 3.0
+required_discovery = &"grinding"

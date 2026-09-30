@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_4rwsq"]
+
+[resource]
+script = ExtResource("1_4rwsq")
+required_tools = Array[StringName]([])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &""
+id = &"lean_to"
+inputs = Dictionary[StringName, int]({
+&"branch": 8,
+&"cordage": 2,
+&"hide": 2
+})
+output_id = &"lean_to"
+output_amount = 1
+station = 0
+craft_seconds = 5.0
+required_discovery = &""

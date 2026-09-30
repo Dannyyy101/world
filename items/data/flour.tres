@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_flour.png" id="1_82qqc"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_wdqig"]
+
+[resource]
+script = ExtResource("2_wdqig")
+id = &"flour"
+display_name = "Mehl"
+description = "Zwischen Steinen zerrieben."
+icon = ExtResource("1_82qqc")
+category = 0
+max_stack = 40
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 30
+placeable_scene_path = ""
+required_discovery = &""

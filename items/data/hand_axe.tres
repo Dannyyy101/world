@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_hand_axe.png" id="1_dbcau"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_87myj"]
+
+[resource]
+script = ExtResource("2_87myj")
+id = &"hand_axe"
+display_name = "Faustkeil"
+description = "Ein Stein mit scharfer Kante. Fällt Bäume, schneidet, schlägt."
+icon = ExtResource("1_dbcau")
+category = 2
+max_stack = 1
+tool_type = 1
+tool_power = 2.0
+max_durability = 40
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = ""
+required_discovery = &""

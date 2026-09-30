@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_tinder.png" id="1_pct3m"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_5bgfd"]
+
+[resource]
+script = ExtResource("2_5bgfd")
+id = &"tinder"
+display_name = "Zunder"
+description = "Trockenes Gras und Rinde. Fängt schnell Funken."
+icon = ExtResource("1_pct3m")
+category = 0
+max_stack = 30
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = ""
+required_discovery = &""

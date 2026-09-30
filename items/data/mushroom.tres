@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_mushroom.png" id="1_5f1hw"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_hrpt2"]
+
+[resource]
+script = ExtResource("2_hrpt2")
+id = &"mushroom"
+display_name = "Pilz"
+description = "Nicht jeder Pilz ist essbar …"
+icon = ExtResource("1_5f1hw")
+category = 1
+max_stack = 20
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 6.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 4
+placeable_scene_path = ""
+required_discovery = &""
