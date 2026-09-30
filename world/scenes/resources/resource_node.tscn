@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://world/scripts/resource_node.gd" id="1_rn"]
+[ext_resource type="PackedScene" path="res://core/components/interactable.tscn" id="2_int"]
+[ext_resource type="PackedScene" path="res://core/components/hurtbox.tscn" id="3_hurt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(10, 6)
+
+[sub_resource type="Gradient" id="Gradient_fade"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ResourceNode" type="Node2D"]
+script = ExtResource("1_rn")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="Body" type="StaticBody2D" parent="."]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource("RectangleShape2D_body")
+disabled = true
+
+[node name="Interactable" parent="." instance=ExtResource("2_int")]
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_hurt")]
+
+[node name="HitParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -8)
+emitting = false
+amount = 8
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 70.0
+gravity = Vector2(0, 120)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+scale_amount_min = 1.5
+scale_amount_max = 2.5
+color_ramp = SubResource("Gradient_fade")

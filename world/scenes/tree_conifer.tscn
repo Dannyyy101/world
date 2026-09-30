@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://world/scenes/resources/resource_node.tscn" id="1_base"]
+[ext_resource type="Texture2D" path="res://world/art/objects/tree.png" id="2_t"]
+[ext_resource type="Texture2D" path="res://world/art/placeholder/stump.png" id="3_t"]
+
+[node name="tree_conifer" instance=ExtResource("1_base")]
+texture_full = ExtResource("2_t")
+texture_depleted = ExtResource("3_t")
+mode = 1
+item_id = &"wood_log"
+amount_min = 2
+amount_max = 3
+extra_drops = {"branch": Vector2i(1, 2)}
+action_id = &"chop_tree"
+prompt_text = "Baum fällen"
+required_tool = 1
+hit_points = 4.0
+regrow_days = 28
+foliage = 2
+sprite_offset = Vector2(0, -31)
+particle_color = Color(0.35, 0.28, 0.18, 1)
+blocks_movement = true
+hurtbox_size = Vector2(14, 30)

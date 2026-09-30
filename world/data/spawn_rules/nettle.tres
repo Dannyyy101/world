@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpawnRule" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://world/scripts/spawn_rule.gd" id="1_rule"]
+[ext_resource type="PackedScene" path="res://world/scenes/nettle.tscn" id="2_scene"]
+
+[resource]
+script = ExtResource("1_rule")
+id = &"nettle"
+scene = ExtResource("2_scene")
+terrains = Array[int]([1, 3])
+count = 50
+min_spacing = 2.0
+max_water_dist = -1
+min_water_dist = 2
+cluster_size = 4
+cluster_radius = 2.5

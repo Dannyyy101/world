@@ -1,74 +1,69 @@
+class_name TreeSpawner
 extends Node2D
-## Verteilt Bäume zufällig, aber reproduzierbar (gleicher Seed = gleiche Welt).
-## An den "Trees"-Node hängen (Y Sort Enabled: On).
+## Verteilt Bäume biomabhängig, aber reproduzierbar (gleicher Seed = gleiche Welt).
+## Laubwald -> Laubbäume (dicht), Nadelwald -> Nadelbäume (dicht), Wiese/Flussaue -> vereinzelt Laubbäume,
+## Felsgebiet -> vereinzelt Nadelbäume. An den "Trees"-Node hängen (Y Sort Enabled: On).
 
-@export var tree_scene: PackedScene
-@export var ground: TileMapLayer            ## zum Prüfen, ob dort Gras liegt
-@export var grass_source_id: int = 0        ## Source-ID von grass_base.png im TileSet
+@export var deciduous_scene: PackedScene
+@export var conifer_scene: PackedScene
+@export var noise_frequency: float = 0.09  ## kleiner = größere Baumgruppen
 
-@export_group("Bereich")
-@export var area := Rect2(-400, -300, 800, 600)
-@export var clear_center := Vector2.ZERO    ## z. B. Spawnpunkt des Players
-@export var clear_radius := 48.0            ## hier wachsen keine Bäume
-
-@export_group("Verteilung")
-@export var world_seed: int = 12345
-@export var attempts: int = 600             ## mehr Versuche = dichter
-@export var min_distance := 20.0            ## Mindestabstand zwischen Bäumen
-@export var noise_frequency := 0.008        ## kleiner = größere Waldflächen
-@export_range(-1.0, 1.0) var forest_threshold := 0.1  ## höher = weniger Wald
+## Wahrscheinlichkeit je Zelle (vor Cluster-Rauschen), pro Terrain.
+const DENSITY: Dictionary = {
+	Biome.Terrain.DECIDUOUS: 0.5,
+	Biome.Terrain.CONIFER: 0.5,
+	Biome.Terrain.MEADOW: 0.03,
+	Biome.Terrain.FLOODPLAIN: 0.07,
+	Biome.Terrain.ROCK: 0.04,
+}
 
 
-func _ready() -> void:
-	generate()
-
-
-func generate() -> void:
+func clear() -> void:
 	for child in get_children():
 		child.queue_free()
 
-	var rng := RandomNumberGenerator.new()
-	rng.seed = world_seed
 
-	var noise := FastNoiseLite.new()
-	noise.seed = world_seed
+## Wird vom WorldGenerator aufgerufen, nachdem das Terrain steht.
+func spawn(gen: WorldGenerator) -> int:
+	clear()
+	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+	rng.seed = gen.world_seed ^ 0x7EE5
+	var noise: FastNoiseLite = FastNoiseLite.new()
+	noise.seed = gen.world_seed + 31
 	noise.frequency = noise_frequency
-
-	var placed: Array[Vector2] = []
-	var min_dist_sq := min_distance * min_distance
-
-	for i in attempts:
-		var p := Vector2(
-			rng.randf_range(area.position.x, area.end.x),
-			rng.randf_range(area.position.y, area.end.y)
-		).floor()  # ganze Pixel -> scharfe Pixelart
-
-		# 1. Nur in "Waldgebieten" laut Noise -> natürliche Cluster statt Gleichverteilung
-		if noise.get_noise_2dv(p) < forest_threshold:
-			continue
-		# 2. Spawnbereich freihalten
-		if p.distance_to(clear_center) < clear_radius:
-			continue
-		# 3. Nur auf Gras (nicht im Fluss, nicht auf Wegen)
-		if not _is_grass(p):
-			continue
-		# 4. Mindestabstand zu anderen Bäumen
-		var too_close := false
-		for q in placed:
-			if p.distance_squared_to(q) < min_dist_sq:
-				too_close = true
-				break
-		if too_close:
-			continue
-
-		placed.append(p)
-		var tree := tree_scene.instantiate()
-		tree.position = p
-		add_child(tree)
+	var rect: Rect2i = gen.map_rect
+	var count: int = 0
+	for cy in range(rect.position.y, rect.end.y):
+		for cx in range(rect.position.x, rect.end.x):
+			var cell: Vector2i = Vector2i(cx, cy)
+			var t: int = gen.get_terrain_cell(cell)
+			var density: float = DENSITY.get(t, 0.0)
+			# rng.randf() immer ziehen, damit die Folge unabhängig von der Belegung bleibt
+			var roll: float = rng.randf()
+			var jx: int = rng.randi_range(-5, 5)
+			var jy: int = rng.randi_range(-3, 3)
+			if density <= 0.0 or gen.is_occupied(cell):
+				continue
+			var n: float = (noise.get_noise_2d(cx, cy) + 1.0) * 0.5
+			if roll > density * (0.4 + n * 1.2):
+				continue
+			if _has_occupied_neighbor(gen, cell):
+				continue
+			var use_conifer: bool = t == Biome.Terrain.CONIFER or t == Biome.Terrain.ROCK
+			var scene: PackedScene = conifer_scene if use_conifer else deciduous_scene
+			var tree: ResourceNode = scene.instantiate()
+			tree.node_id = "tree@%d,%d" % [cx, cy]
+			tree.position = (gen.cell_center(cell) + Vector2(jx, 4 + jy)).floor()
+			add_child(tree)
+			gen.register_node(tree)
+			gen.mark_occupied(cell)
+			count += 1
+	return count
 
 
-func _is_grass(p: Vector2) -> bool:
-	if ground == null:
-		return true
-	var cell := ground.local_to_map(ground.to_local(to_global(p)))
-	return ground.get_cell_source_id(cell) == grass_source_id
+func _has_occupied_neighbor(gen: WorldGenerator, cell: Vector2i) -> bool:
+	for dy in range(-1, 2):
+		for dx in range(-1, 2):
+			if (dx != 0 or dy != 0) and gen.is_occupied(cell + Vector2i(dx, dy)):
+				return true
+	return false
