@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StructureInfo" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/build/structure_info.gd" id="1_6sx63"]
+
+[resource]
+script = ExtResource("1_6sx63")
+id = &"lean_to"
+footprint = Vector2i(2, 2)
+provides_station = false
+station = 2
+placeholder_color = Color(0.627451, 0.415686, 0.227451, 1)

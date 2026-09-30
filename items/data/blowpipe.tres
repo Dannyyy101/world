@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_blowpipe.png" id="1_e0rpc"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_mdcqg"]
+
+[resource]
+script = ExtResource("2_mdcqg")
+id = &"blowpipe"
+display_name = "Blasrohr"
+description = "Knochenrohr zum Anfachen der Glut – heiß genug für Erz."
+icon = ExtResource("1_e0rpc")
+category = 2
+max_stack = 1
+tool_type = 0
+tool_power = 0.0
+max_durability = 40
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = ""
+required_discovery = &""

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://items/art/placeholder/item_longhouse.png" id="1_ycqsp"]
+[ext_resource type="Script" path="res://core/resources/item_data.gd" id="2_q5oiw"]
+
+[resource]
+script = ExtResource("2_q5oiw")
+id = &"longhouse"
+display_name = "Langhaus"
+description = "Platz für den ganzen Stamm."
+icon = ExtResource("1_ycqsp")
+category = 5
+max_stack = 5
+tool_type = 0
+tool_power = 0.0
+max_durability = 0
+nutrition = 0.0
+hydration = 0.0
+warmth = 0.0
+spoil_days = 0
+placeable_scene_path = "res://tribe/scenes/longhouse.tscn"
+required_discovery = &""

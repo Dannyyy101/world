@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_pfqxm"]
+
+[resource]
+script = ExtResource("1_pfqxm")
+required_tools = Array[StringName]([&"scraper"])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &""
+id = &"fur_clothing"
+inputs = Dictionary[StringName, int]({
+&"cordage": 1,
+&"hide": 3
+})
+output_id = &"fur_clothing"
+output_amount = 1
+station = 2
+craft_seconds = 8.0
+required_discovery = &"fur_clothing"

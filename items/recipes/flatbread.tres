@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://items/crafting/crafting_recipe.gd" id="1_rcf4o"]
+
+[resource]
+script = ExtResource("1_rcf4o")
+required_tools = Array[StringName]([])
+uses_knapping = false
+fail_output_id = &""
+fail_output_amount = 1
+fail_keeps = Array[StringName]([])
+action_id = &"cook"
+id = &"flatbread"
+inputs = Dictionary[StringName, int]({
+&"flour": 2
+})
+output_id = &"flatbread"
+output_amount = 1
+station = 1
+craft_seconds = 4.0
+required_discovery = &"cooking"
