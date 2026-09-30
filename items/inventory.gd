@@ -274,6 +274,18 @@ func _full_durability(id: StringName) -> int:
 	return 0 if data == null else data.max_durability
 
 
+## Getragene Kleidung (Kategorie CLOTHING im Inventar; ein Stück pro Item-ID). PlayerStats summiert deren `warmth`.
+func get_worn_clothing() -> Array[ItemData]:
+	var out: Array[ItemData] = []
+	for s in _slots:
+		if s == null:
+			continue
+		var d: ItemData = s.data()
+		if d != null and d.category == Enums.ItemCategory.CLOTHING and not out.has(d):
+			out.append(d)
+	return out
+
+
 ## Alle belegten Stapel (nur lesen!).
 func get_all_stacks() -> Array[ItemStack]:
 	var out: Array[ItemStack] = []
