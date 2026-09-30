@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://core/tests/test_core.gd" id="1_t"]
+[ext_resource type="Theme" path="res://core/theme/main_theme.tres" id="2_theme"]
+
+[node name="TestCore" type="Node"]
+script = ExtResource("1_t")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 476.0
+offset_bottom = 266.0
+theme = ExtResource("2_theme")
+text = "läuft ..."
