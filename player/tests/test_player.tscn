@@ -1,0 +1,35 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://player/tests/test_player.gd" id="1_t"]
+[ext_resource type="PackedScene" path="res://player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://core/components/interactable.tscn" id="3_inter"]
+[ext_resource type="PackedScene" path="res://core/components/hurtbox.tscn" id="4_hurt"]
+[ext_resource type="Theme" path="res://core/theme/main_theme.tres" id="5_theme"]
+
+[node name="TestPlayer" type="Node2D"]
+script = ExtResource("1_t")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+
+[node name="Interactable" parent="." instance=ExtResource("3_inter")]
+position = Vector2(-10, 0)
+prompt_text = "Testobjekt"
+
+[node name="Dummy" type="Node2D" parent="."]
+position = Vector2(0, 18)
+
+[node name="Marker" type="ColorRect" parent="Dummy"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.7, 0.25, 0.2, 1)
+
+[node name="Hurtbox" parent="Dummy" instance=ExtResource("4_hurt")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 4.0
+theme = ExtResource("5_theme")
