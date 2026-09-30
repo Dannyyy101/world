@@ -21,7 +21,7 @@ Stats `&"health"`, `&"hunger"`, `&"thirst"`, `&"warmth"`, `&"energy"` (0–100).
 - **Wärme** strebt einer Zieltemperatur zu: Jahreszeit-Basis (Frühling 55, Sommer 80, Herbst 42, Winter 12) − Nachtkälte − Wettermalus
   (Regen −12, Sturm −20, Schnee −10, Nebel −4) + Feuer + Unterschlupf + Kleidung.
   - Feuer: Nodes der Gruppe `"heat_source"` (und alle per `fire_lit` gemeldeten). Optionale Eigenschaften am Node:
-    `heat_radius` (64), `heat_strength` (45), Methode `is_lit() -> bool`.
+    `heat_radius` (64; 0 = aus), `get_heat_strength()` (0..1, ×45 Wärmepunkte) bzw. `heat_strength`, `is_burning()`/`is_lit()`.
   - Unterschlupf: Nodes der Gruppe `"shelter"`, optional `shelter_radius` (40), `shelter_warmth` (18). Im Unterschlupf entfällt der Wettermalus.
   - Kleidung: siehe interface_requests (bis dahin zählt `fur_clothing` im Inventar mit `ItemData.warmth`, Fallback 25).
 - **Konsequenzen:** unter 30 → einmalige Warnung (`notification_requested`), Bildrand-Effekt, Verlangsamung bis ×0,55.

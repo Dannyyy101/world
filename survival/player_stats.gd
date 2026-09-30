@@ -363,10 +363,16 @@ func _fire_warmth() -> float:
 			sources[id] = _tracked_fires[id]
 	var total: float = 0.0
 	for n in sources.values():
+		if n.has_method("is_burning") and not n.call("is_burning"):
+			continue
 		if n.has_method("is_lit") and not n.call("is_lit"):
 			continue
 		var radius: float = _prop(n, "heat_radius", DEFAULT_HEAT_RADIUS)
+		if radius <= 0.0:
+			continue   # Agent 4: heat_radius 0 = aus
 		var strength: float = _prop(n, "heat_strength", DEFAULT_HEAT_STRENGTH)
+		if n.has_method("get_heat_strength"):
+			strength = float(n.call("get_heat_strength")) * DEFAULT_HEAT_STRENGTH   # 0..1 -> Wärmepunkte
 		var d: float = player.global_position.distance_to(n.global_position)
 		if d < radius:
 			total += strength * (1.0 - 0.5 * d / radius)

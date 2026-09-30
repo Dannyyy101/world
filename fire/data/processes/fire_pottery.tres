@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FireProcess" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://fire/scripts/fire_process.gd" id="1_proc"]
+
+[resource]
+script = ExtResource("1_proc")
+id = &"fire_pottery"
+station = 4
+input_id = &"clay_pot_unfired"
+extra_inputs = {}
+output_id = &"fired_pottery"
+output_amount = 1
+duration_hours = 0.3
+burn_after_hours = 0.0
+min_temperature = 600.0
+action_id = &"fire_pottery"

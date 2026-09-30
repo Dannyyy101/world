@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FireProcess" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://fire/scripts/fire_process.gd" id="1_proc"]
+
+[resource]
+script = ExtResource("1_proc")
+id = &"cook_fish"
+station = 1
+input_id = &"raw_fish"
+extra_inputs = {}
+output_id = &"cooked_fish"
+output_amount = 1
+duration_hours = 0.25
+burn_after_hours = 0.25
+min_temperature = 0.0
+action_id = &"cook"
